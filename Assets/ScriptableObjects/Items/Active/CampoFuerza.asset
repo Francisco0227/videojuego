@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04d5aa8be0ab514886a4b572533671f, type: 3}
+  m_Name: CampoFuerza
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Campo de Fuerza
+  description: 
+  itemType: 0
+  maxLevel: 6
+  levels:
+  - levelDescription: Afecta a los enemigos cercanos
+    damage: 5
+    area: 2
+    speed: 0
+    duration: 0
+    cooldown: 0
+    projectileCount: 0
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta \xE1rea"
+    damage: 5
+    area: 3
+    speed: 0
+    duration: 0
+    cooldown: 0
+    projectileCount: 0
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta da\xF1o"
+    damage: 8
+    area: 3
+    speed: 0
+    duration: 0
+    cooldown: 0
+    projectileCount: 0
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta \xE1rea"
+    damage: 8
+    area: 4
+    speed: 0
+    duration: 0
+    cooldown: 0
+    projectileCount: 0
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta Da\xF1o"
+    damage: 12
+    area: 4
+    speed: 0
+    duration: 0
+    cooldown: 0
+    projectileCount: 0
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Evoluci\xF3n: Relantiza a enemigos"
+    damage: 15
+    area: 5
+    speed: 0
+    duration: 0
+    cooldown: 0
+    projectileCount: 0
+    isEvolution: 1
+    specialAbility: Ralentizacion

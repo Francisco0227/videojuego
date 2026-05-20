@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04d5aa8be0ab514886a4b572533671f, type: 3}
+  m_Name: LaserNeutrones
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Laser de Neutrones
+  description: "Dispara en cadena entre enemigos cercanos entre s\xED"
+  itemType: 0
+  maxLevel: 6
+  levels:
+  - levelDescription: Cadena base de 5 enemigos
+    damage: 8
+    area: 0
+    speed: 5
+    duration: 0
+    cooldown: 3
+    projectileCount: 5
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "M\xE1s enemigos y velocidad de cadena"
+    damage: 8
+    area: 0
+    speed: 8
+    duration: 0
+    cooldown: 3
+    projectileCount: 5
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "M\xE1s velocidad de repetici\xF3n y da\xF1o"
+    damage: 14
+    area: 0
+    speed: 8
+    duration: 0
+    cooldown: 2
+    projectileCount: 7
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "M\xE1s enemigos y velocidad de cadena"
+    damage: 14
+    area: 0
+    speed: 12
+    duration: 0
+    cooldown: 2
+    projectileCount: 10
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "M\xE1s velocidad de repetici\xF3n y da\xF1o"
+    damage: 20
+    area: 0
+    speed: 12
+    duration: 0
+    cooldown: 1.2
+    projectileCount: 10
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Evoluci\xF3n: cada 6to disparo lanza 4 rayos"
+    damage: 28
+    area: 0
+    speed: 15
+    duration: 0
+    cooldown: 1
+    projectileCount: 13
+    isEvolution: 1
+    specialAbility: RayosCruzados

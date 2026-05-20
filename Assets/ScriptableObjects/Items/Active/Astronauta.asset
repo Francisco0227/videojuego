@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04d5aa8be0ab514886a4b572533671f, type: 3}
+  m_Name: Astronauta
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Astronauta Atacante
+  description: 'Lanza un astronauta con cuerda para atacar enemigos cercanos '
+  itemType: 0
+  maxLevel: 6
+  levels:
+  - levelDescription: "Un astronauta hacia el enemigo m\xE1s cercano"
+    damage: 20
+    area: 3
+    speed: 6
+    duration: 0
+    cooldown: 1.5
+    projectileCount: 1
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumento de da\xF1o y rango"
+    damage: 30
+    area: 4
+    speed: 6
+    duration: 0
+    cooldown: 1.5
+    projectileCount: 1
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "M\xE1s velocidad, lanza dos astronautas"
+    damage: 30
+    area: 4
+    speed: 9
+    duration: 0
+    cooldown: 1
+    projectileCount: 2
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumento de da\xF1o y rango"
+    damage: 40
+    area: 5
+    speed: 9
+    duration: 0
+    cooldown: 1
+    projectileCount: 2
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: Aumento de velocidad de ataque
+    damage: 40
+    area: 5
+    speed: 12
+    duration: 0
+    cooldown: 0.7
+    projectileCount: 2
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Evoluci\xF3n: sable de luz con ataque extra"
+    damage: 55
+    area: 6
+    speed: 14
+    duration: 0
+    cooldown: 0.7
+    projectileCount: 2
+    isEvolution: 1
+    specialAbility: SableDeLuz

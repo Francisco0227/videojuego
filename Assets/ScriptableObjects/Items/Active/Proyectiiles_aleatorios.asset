@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04d5aa8be0ab514886a4b572533671f, type: 3}
+  m_Name: Proyectiiles_aleatorios
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: Proyectiles Aleatorios
+  description: Lanza bombas en lugares aleatorios del mapa
+  itemType: 0
+  maxLevel: 6
+  levels:
+  - levelDescription: "Explosiones base con da\xF1o y \xE1rea"
+    damage: 12
+    area: 2
+    speed: 0
+    duration: 0
+    cooldown: 2
+    projectileCount: 3
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta el da\xF1o"
+    damage: 18
+    area: 2
+    speed: 0
+    duration: 0
+    cooldown: 2
+    projectileCount: 3
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta el \xE1rea y reduce la recarga"
+    damage: 18
+    area: 3
+    speed: 0
+    duration: 0
+    cooldown: 1.5
+    projectileCount: 4
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta el da\xF1o"
+    damage: 25
+    area: 3
+    speed: 0
+    duration: 0
+    cooldown: 1.5
+    projectileCount: 4
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Aumenta el \xE1rea y reduce la recarga"
+    damage: 25
+    area: 4
+    speed: 0
+    duration: 0
+    cooldown: 1
+    projectileCount: 5
+    isEvolution: 0
+    specialAbility: 
+  - levelDescription: "Evoluci\xF3n: deja enemigos en llamas"
+    damage: 35
+    area: 5
+    speed: 0
+    duration: 0
+    cooldown: 0.8
+    projectileCount: 5
+    isEvolution: 1
+    specialAbility: Llamas
