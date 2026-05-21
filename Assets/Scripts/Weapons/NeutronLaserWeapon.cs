@@ -28,9 +28,9 @@ public class NeutronLaserWeapon : WeaponBase
     // INICIALIZACIÓN
     // ─────────────────────────────────────────────
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         playerMovement = GetComponentInParent<PlayerMovement>();
     }
 

@@ -22,7 +22,7 @@ public abstract class WeaponBase : MonoBehaviour
     // UNITY LIFECYCLE
     // ─────────────────────────────────────────────
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         playerStats = GetComponentInParent<PlayerStats>();
         itemBag = GetComponentInParent<ItemBag>();

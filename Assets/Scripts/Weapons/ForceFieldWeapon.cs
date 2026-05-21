@@ -31,9 +31,9 @@ public class ForceFieldWeapon : WeaponBase
     // INICIALIZACIÓN
     // ─────────────────────────────────────────────
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         // Obtener o crear el CircleCollider2D
         fieldCollider = GetComponent<CircleCollider2D>();

@@ -23,9 +23,9 @@ public class LaserWeapon : WeaponBase
     // INICIALIZACIÓN
     // ─────────────────────────────────────────────
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start(); // Llama al Start de WeaponBase
+        base.Awake(); // Llama al Start de WeaponBase
 
         // Buscar el ItemData del Laser Común en el ItemBag
         // para saber qué datos leer
