@@ -13,61 +13,61 @@ MonoBehaviour:
   m_Name: CampoFuerza
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Campo de Fuerza
-  description: 
+  description: "Pulsa un campo de fuerza que da\xF1a a los enemigos cercanos"
   itemType: 0
   maxLevel: 6
   levels:
-  - levelDescription: Afecta a los enemigos cercanos
+  - levelDescription: "Campo b\xE1sico: activo 1.5s, pausa 2.5s"
     damage: 5
     area: 2
     speed: 0
-    duration: 0
-    cooldown: 0
+    duration: 1.5
+    cooldown: 2.5
     projectileCount: 0
     isEvolution: 0
-    specialAbility: 
-  - levelDescription: "Aumenta \xE1rea"
+    specialAbility:
+  - levelDescription: "Radio mayor: activo 1.5s, pausa 1.8s"
     damage: 5
     area: 3
     speed: 0
-    duration: 0
-    cooldown: 0
+    duration: 1.5
+    cooldown: 1.8
     projectileCount: 0
     isEvolution: 0
-    specialAbility: 
-  - levelDescription: "Aumenta da\xF1o"
+    specialAbility:
+  - levelDescription: "Mayor da\xF1o y frecuencia: activo 2s, pausa 1.5s"
     damage: 8
     area: 3
     speed: 0
-    duration: 0
-    cooldown: 0
+    duration: 2
+    cooldown: 1.5
     projectileCount: 0
     isEvolution: 0
-    specialAbility: 
-  - levelDescription: "Aumenta \xE1rea"
+    specialAbility:
+  - levelDescription: "Radio mayor y m\xE1s frecuente: activo 2s, pausa 1s"
     damage: 8
     area: 4
     speed: 0
-    duration: 0
-    cooldown: 0
+    duration: 2
+    cooldown: 1
     projectileCount: 0
     isEvolution: 0
-    specialAbility: 
-  - levelDescription: "Aumenta Da\xF1o"
+    specialAbility:
+  - levelDescription: "Mayor da\xF1o, muy frecuente: activo 2.5s, pausa 0.7s"
     damage: 12
     area: 4
     speed: 0
-    duration: 0
-    cooldown: 0
+    duration: 2.5
+    cooldown: 0.7
     projectileCount: 0
     isEvolution: 0
-    specialAbility: 
-  - levelDescription: "Evoluci\xF3n: Relantiza a enemigos"
+    specialAbility:
+  - levelDescription: "Evoluci\xF3n: ralentiza enemigos. Activo 3s, pausa 0.5s"
     damage: 15
     area: 5
     speed: 0
-    duration: 0
-    cooldown: 0
+    duration: 3
+    cooldown: 0.5
     projectileCount: 0
     isEvolution: 1
     specialAbility: Ralentizacion

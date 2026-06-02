@@ -15,8 +15,9 @@ public class ExperienceStar : MonoBehaviour
     // ESTADO
     // ─────────────────────────────────────────────
 
-    private Transform playerTransform;
-    private bool isAttracting = false; // ¿Está viajando hacia el jugador?
+    private Transform   playerTransform;
+    private PlayerStats playerStats;
+    private bool        isAttracting = false;
 
     // ─────────────────────────────────────────────
     // INICIALIZACIÓN
@@ -33,9 +34,10 @@ public class ExperienceStar : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
+        {
             playerTransform = player.transform;
-
-        // Destruirse automáticamente si nadie la recoge
+            playerStats     = player.GetComponent<PlayerStats>();
+        }
         Destroy(gameObject, lifetime);
     }
 
@@ -47,13 +49,10 @@ public class ExperienceStar : MonoBehaviour
     {
         if (playerTransform == null) return;
 
-        float distToPlayer = Vector2.Distance(
-            transform.position,
-            playerTransform.position
-        );
+        float distToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        float range = playerStats != null ? playerStats.PickupRange : pickupRadius;
 
-        // Si el jugador está cerca, empezar a atraerse
-        if (distToPlayer <= pickupRadius)
+        if (distToPlayer <= range)
             isAttracting = true;
 
         // Mover hacia el jugador si está siendo atraída

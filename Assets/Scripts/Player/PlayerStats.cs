@@ -26,10 +26,12 @@ public class PlayerStats : MonoBehaviour
 
     // Estos valores los van a modificar los items pasivos
     // Los guardamos separados para poder quitarlos si fuera necesario
-    private float bonusSpeed = 0f;   // Se suma a baseSpeed
-    private float damageMultiplier = 1f;   // Se multiplica al daño final
-    private float attackSpeedMultiplier = 1f; // Se multiplica a la velocidad de ataque
-    private float bonusMaxHealth = 0f;   // Se suma a maxHealth
+    private float bonusSpeed = 0f;
+    private float damageMultiplier = 1f;
+    private float attackSpeedMultiplier = 1f;
+    private float bonusMaxHealth = 0f;
+    private float defenseReduction = 0f;  // 0-0.25: % de daño reducido
+    private float bonusPickupRange  = 0f; // unidades extra de atracción de estrellas
 
     // ─────────────────────────────────────────────
     // PROPIEDADES CALCULADAS
@@ -37,13 +39,9 @@ public class PlayerStats : MonoBehaviour
     // obtiene baseSpeed + todos los bonos aplicados
     // ─────────────────────────────────────────────
 
-    // La velocidad real = base + bonus de pasivas
-    public float Speed
-        => baseSpeed + bonusSpeed;
-
-    // El daño real = base * multiplicador de pasivas
-    public float Damage
-        => baseDamage * damageMultiplier;
+    public float Speed        => baseSpeed + bonusSpeed;
+    public float Damage       => baseDamage * damageMultiplier;
+    public float PickupRange  => 1.5f + bonusPickupRange;
 
     // La velocidad de ataque real = base * multiplicador de pasivas
     public float AttackSpeed
@@ -88,12 +86,21 @@ public class PlayerStats : MonoBehaviour
     // UNITY LIFECYCLE
     // ─────────────────────────────────────────────
 
+    void Awake()
+    {
+        // Aplicar mejoras permanentes de la meta-progresión
+        defenseReduction    = PersistentData.GetTotalBonus(UpgradeType.Defense);
+        bonusMaxHealth      = PersistentData.GetTotalBonus(UpgradeType.MaxHealth);
+        bonusSpeed          = PersistentData.GetTotalBonus(UpgradeType.Speed);
+        bonusPickupRange    = PersistentData.GetTotalBonus(UpgradeType.PickupRange);
+        damageMultiplier    = 1f + PersistentData.GetTotalBonus(UpgradeType.Damage);
+
+        currentHealth = MaxHealth;
+    }
+
     void Start()
     {
-        // Al iniciar, la vida actual es la máxima
-        // Usamos la propiedad (no el campo privado) para
-        // que se dispare el evento y la UI se inicialice correcta
-        currentHealth = MaxHealth;
+        OnHealthChanged?.Invoke(currentHealth, MaxHealth);
     }
 
     // ─────────────────────────────────────────────
@@ -101,12 +108,10 @@ public class PlayerStats : MonoBehaviour
     // Estos los llaman las colisiones con enemigos
     // ─────────────────────────────────────────────
 
-    // Recibir daño
     public void TakeDamage(float amount)
     {
-        // Mathf.Max asegura que amount nunca sea negativo
-        // (no queremos que un "daño" de -10 cure al jugador por accidente)
-        CurrentHealth -= Mathf.Max(0f, amount);
+        float reduced = amount * (1f - defenseReduction);
+        CurrentHealth -= Mathf.Max(0f, reduced);
     }
 
     // Recuperar vida

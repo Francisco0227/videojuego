@@ -182,7 +182,7 @@ public class EnemyBase : MonoBehaviour
         isAlive = false;
         StopAllCoroutines();
 
-        // Soltar estrella de experiencia
+        ScoreManager.Instance?.RegisterKill();
         DropExperienceStar();
 
         Destroy(gameObject);
