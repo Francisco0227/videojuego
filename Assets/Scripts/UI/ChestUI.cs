@@ -7,16 +7,11 @@ public class ChestUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI  coinsEarnedText;
     [SerializeField] private TextMeshProUGUI  totalCoinsText;
 
-    void Start()
-    {
-        if (panel != null) panel.SetActive(false);
-    }
-
     public void Show(int coinsEarned)
     {
         if (panel == null) return;
         panel.SetActive(true);
-        Time.timeScale = 0f;
+        PauseManager.Pause();
 
         if (coinsEarnedText != null)
             coinsEarnedText.text = $"+ {coinsEarned} monedas";
@@ -27,6 +22,6 @@ public class ChestUI : MonoBehaviour
     public void Collect()
     {
         if (panel != null) panel.SetActive(false);
-        Time.timeScale = 1f;
+        PauseManager.Resume();
     }
 }

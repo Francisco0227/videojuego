@@ -46,7 +46,7 @@ public class EnemyBase : MonoBehaviour
     // ─────────────────────────────────────────────
 
     protected bool isAlive = true;
-    protected bool isAttacking = false;  // Evita ataques simultáneos
+    private float lastAttackTime = -Mathf.Infinity;
 
     // ─────────────────────────────────────────────
     // UNITY LIFECYCLE
@@ -111,29 +111,39 @@ public class EnemyBase : MonoBehaviour
 
     // ─────────────────────────────────────────────
     // LOOP DE COMPORTAMIENTO
-    // Controla el ciclo de ataque del enemigo
+    // Subclases pueden sobreescribir para comportamientos especiales
     // ─────────────────────────────────────────────
 
     protected virtual IEnumerator BehaviourLoop()
     {
-        // Espera un momento antes de empezar a atacar
-        // Evita que todos los enemigos ataquen al mismo tiempo al spawnearse
-        yield return new WaitForSeconds(Random.Range(0.2f, 0.8f));
+        yield break;
+    }
 
-        while (isAlive)
-        {
-            // Esperar hasta estar en rango de ataque
-            yield return new WaitUntil(() =>
-                playerTransform != null &&
-                Vector2.Distance(transform.position, playerTransform.position) <= attackRange
-            );
+    // ─────────────────────────────────────────────
+    // DAÑO POR CONTACTO
+    // Se activa cada frame que el enemigo toca al jugador
+    // y respeta el cooldown de ataque
+    // ─────────────────────────────────────────────
 
-            // Atacar
-            PerformAttack();
+    protected virtual void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!isAlive) return;
+        if (!collision.gameObject.CompareTag("Player")) return;
+        TryContactAttack();
+    }
 
-            // Esperar el cooldown antes del siguiente ataque
-            yield return new WaitForSeconds(attackCooldown);
-        }
+    protected virtual void OnTriggerStay2D(Collider2D other)
+    {
+        if (!isAlive) return;
+        if (!other.CompareTag("Player")) return;
+        TryContactAttack();
+    }
+
+    private void TryContactAttack()
+    {
+        if (Time.time < lastAttackTime + attackCooldown) return;
+        lastAttackTime = Time.time;
+        PerformAttack();
     }
 
     // ─────────────────────────────────────────────
@@ -145,15 +155,6 @@ public class EnemyBase : MonoBehaviour
         if (!isAlive) return;
         if (playerStats == null) return;
 
-        // Verificar que seguimos en rango al momento de atacar
-        float distanceToPlayer = Vector2.Distance(
-            transform.position,
-            playerTransform.position
-        );
-
-        if (distanceToPlayer > attackRange) return;
-
-        // Aplicar daño al jugador
         float finalDamage = damage * damageMultiplier;
         playerStats.TakeDamage(finalDamage);
 
@@ -183,6 +184,7 @@ public class EnemyBase : MonoBehaviour
         StopAllCoroutines();
 
         ScoreManager.Instance?.RegisterKill();
+        ChestManager.Instance?.TryDropChest(transform.position);
         DropExperienceStar();
 
         Destroy(gameObject);

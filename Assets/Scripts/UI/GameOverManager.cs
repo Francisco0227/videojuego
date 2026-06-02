@@ -5,6 +5,7 @@ using TMPro;
 public class GameOverManager : MonoBehaviour
 {
     [SerializeField] private GameObject        gameOverPanel;
+    [SerializeField] private GameObject        weaponBar;
     [SerializeField] private TextMeshProUGUI   killsText;
     [SerializeField] private TextMeshProUGUI   timeText;
     [SerializeField] private TextMeshProUGUI   scoreText;
@@ -52,6 +53,9 @@ public class GameOverManager : MonoBehaviour
                 scoreText.text = $"PUNTUACIÓN FINAL:  {score}";
         }
 
+        if (weaponBar != null)
+            weaponBar.SetActive(false);
+
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 
@@ -60,7 +64,7 @@ public class GameOverManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        Time.timeScale = 1f;
+        PauseManager.ForceReset();
         SceneManager.LoadScene("MainMenu");
     }
 }

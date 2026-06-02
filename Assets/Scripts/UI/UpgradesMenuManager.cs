@@ -46,29 +46,29 @@ public class UpgradesMenuManager : MonoBehaviour
         var bg     = go.AddComponent<Image>();
         bg.color   = SlotColor;
         var rt     = go.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(0f, 68f);
+        rt.sizeDelta = new Vector2(0f, 110f);
 
         var slot       = go.AddComponent<UpgradeSlotUI>();
         slot.upgradeType = cfg.type;
 
         // Nombre
         slot.nameText  = AddText(go, "Name",  new Vector2(0f, 0.5f), new Vector2(0.25f, 0.5f),
-                                  new Vector2(8f, -4f), new Vector2(-4f, 4f), 16f, TMPro.FontStyles.Bold,
+                                  new Vector2(12f, -4f), new Vector2(-4f, 4f), 24f, TMPro.FontStyles.Bold,
                                   TMPro.TextAlignmentOptions.MidlineLeft, Color.white);
 
         // Estrellas
         slot.starsText = AddText(go, "Stars", new Vector2(0.25f, 0.5f), new Vector2(0.45f, 0.5f),
-                                  new Vector2(4f, -4f), new Vector2(-4f, 4f), 18f, TMPro.FontStyles.Normal,
+                                  new Vector2(4f, -4f), new Vector2(-4f, 4f), 28f, TMPro.FontStyles.Normal,
                                   TMPro.TextAlignmentOptions.Center, new Color(1f, 0.85f, 0.1f));
 
         // Bono actual
         slot.bonusText = AddText(go, "Bonus", new Vector2(0.45f, 0.5f), new Vector2(0.72f, 0.5f),
-                                  new Vector2(4f, -4f), new Vector2(-4f, 4f), 12f, TMPro.FontStyles.Normal,
+                                  new Vector2(4f, -4f), new Vector2(-4f, 4f), 18f, TMPro.FontStyles.Normal,
                                   TMPro.TextAlignmentOptions.MidlineLeft, new Color(0.7f, 0.9f, 0.7f));
 
         // Coste
         slot.costText  = AddText(go, "Cost",  new Vector2(0.72f, 0.5f), new Vector2(0.85f, 0.5f),
-                                  new Vector2(4f, -4f), new Vector2(-4f, 4f), 14f, TMPro.FontStyles.Bold,
+                                  new Vector2(4f, -4f), new Vector2(-4f, 4f), 22f, TMPro.FontStyles.Bold,
                                   TMPro.TextAlignmentOptions.Center, new Color(1f, 0.9f, 0.3f));
 
         // Botón comprar
@@ -78,16 +78,16 @@ public class UpgradesMenuManager : MonoBehaviour
         btnImg.color = BtnColor;
         var btn     = btnGO.AddComponent<Button>();
         var btnRT   = btnGO.GetComponent<RectTransform>();
-        btnRT.anchorMin = new Vector2(0.85f, 0.15f);
-        btnRT.anchorMax = new Vector2(1f,    0.85f);
-        btnRT.offsetMin = new Vector2(4f, 0f);
-        btnRT.offsetMax = new Vector2(-8f, 0f);
+        btnRT.anchorMin = new Vector2(0.85f, 0.12f);
+        btnRT.anchorMax = new Vector2(1f,    0.88f);
+        btnRT.offsetMin = new Vector2(6f, 0f);
+        btnRT.offsetMax = new Vector2(-12f, 0f);
 
         var btnLblGO = new GameObject("Label");
         btnLblGO.transform.SetParent(btnGO.transform, false);
         var btnLbl   = btnLblGO.AddComponent<TMPro.TextMeshProUGUI>();
         btnLbl.text      = "COMPRAR";
-        btnLbl.fontSize  = 12f;
+        btnLbl.fontSize  = 20f;
         btnLbl.fontStyle = TMPro.FontStyles.Bold;
         btnLbl.alignment = TMPro.TextAlignmentOptions.Center;
         btnLbl.color     = Color.white;

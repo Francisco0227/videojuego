@@ -136,9 +136,10 @@ public class LevelUpSystem : MonoBehaviour
     {
         if (allItems == null || allItems.Count == 0) return null;
 
-        // Items que no están ya en las opciones
+        // Items que no están ya en las opciones y no están al nivel máximo
         List<ItemData> available = allItems
             .Where(item => !currentOptions.Contains(item))
+            .Where(item => itemBag == null || !itemBag.HasItem(item) || itemBag.CanUpgrade(item))
             .ToList();
 
         if (available.Count == 0) return null;
@@ -168,18 +169,19 @@ public class LevelUpSystem : MonoBehaviour
         return available[Random.Range(0, available.Count)];
     }
 
-    // Fallback: item del inventario aunque esté al máximo
+    // Fallback: item no poseído o del inventario que aún pueda mejorar
     private ItemData GetFallbackItem(List<ItemData> currentOptions)
     {
-        if (itemBag == null) return null;
+        if (allItems == null) return null;
 
-        List<ItemData> allOwned = itemBag.GetAllItems()
+        List<ItemData> fallback = allItems
             .Where(item => !currentOptions.Contains(item))
+            .Where(item => itemBag == null || !itemBag.HasItem(item) || itemBag.CanUpgrade(item))
             .ToList();
 
-        if (allOwned.Count == 0) return null;
+        if (fallback.Count == 0) return null;
 
-        return allOwned[Random.Range(0, allOwned.Count)];
+        return fallback[Random.Range(0, fallback.Count)];
     }
 
     // Mezclar una lista aleatoriamente
@@ -204,8 +206,7 @@ public class LevelUpSystem : MonoBehaviour
     {
         if (levelUpPanel == null) return;
 
-        // Pausar el juego
-        Time.timeScale = 0f;
+        PauseManager.Pause();
 
         // Mostrar el panel
         levelUpPanel.SetActive(true);
@@ -224,8 +225,7 @@ public class LevelUpSystem : MonoBehaviour
         if (levelUpPanel != null)
             levelUpPanel.SetActive(false);
 
-        // Reanudar el juego
-        Time.timeScale = 1f;
+        PauseManager.Resume();
     }
 
     // ─────────────────────────────────────────────
