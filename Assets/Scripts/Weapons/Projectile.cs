@@ -29,6 +29,14 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
         this.speed = speed;
         this.direction = direction.normalized;
+
+
+        // 1. Calculamos el ángulo en grados hacia donde viaja la bala
+        float angle = Mathf.Atan2(this.direction.y, this.direction.x) * Mathf.Rad2Deg;
+
+        // 2. Giramos la bala (-180 grados para compensar)
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
         this.canPenetrate = penetrate;
         this.causesBurning = burning;
 
