@@ -30,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
         // así cuando se detenga mantiene la última dirección
         if (moveInput != Vector2.zero)
             lastDirection = moveInput;
+            // --- Codigo de ROTACIÓN ---
+            // 1. Calculamos  el ángulo en grados hacia donde se mueve el jugador
+            float angle = Mathf.Atan2(lastDirection.y, lastDirection.x) * Mathf.Rad2Deg;
+ 
+            // 2. Giramos la nave (-90 grados porque la nave apunta hacia arriba)
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 
     void FixedUpdate()
