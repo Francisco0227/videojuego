@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Velocidad de Movimiento
   description: Aumenta la velocidad de desplazamiento del jugador
+  icon: {fileID: -8966643095438776406, guid: 80ce94cfa50434543a5a6ca10c05c05a, type: 3}
   itemType: 1
   maxLevel: 6
   levels:

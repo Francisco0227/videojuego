@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: "Da\xF1o General"
   description: "Aumenta el da\xF1o de todas las armas activas en un porcentaje"
+  icon: {fileID: -6896679092137289348, guid: e548c456003562b4a89a7ebf484d5d47, type: 3}
   itemType: 1
   maxLevel: 6
   levels:

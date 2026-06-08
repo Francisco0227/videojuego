@@ -20,9 +20,10 @@ public class ItemData : ScriptableObject
 
     [Header("Información General")]
     public string itemName;
-    [TextArea] public string description;   // TextArea hace el campo más grande en el Inspector
+    [TextArea] public string description;
+    public Sprite icon;
     public ItemType itemType;
-    public int maxLevel = 6;                // Todos los items tienen máximo 6 niveles
+    public int maxLevel = 6;
 
     // ─────────────────────────────────────────────
     // ESTADÍSTICAS POR NIVEL

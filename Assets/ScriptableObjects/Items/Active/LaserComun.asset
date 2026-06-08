@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: "Laser Com\xFAn"
   description: "Dispara al enemigo m\xE1s cercano autom\xE1ticamente"
+  icon: {fileID: -8994897261979567367, guid: 9bd280f25338b9649b6b0c520ac3f119, type: 3}
   itemType: 0
   maxLevel: 6
   levels:

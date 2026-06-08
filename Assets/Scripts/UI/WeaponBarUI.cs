@@ -23,7 +23,12 @@ public class WeaponBarUI : MonoBehaviour
         {
             itemBag = player.GetComponent<ItemBag>();
             if (itemBag != null)
+            {
                 itemBag.OnItemAdded += OnItemChanged;
+                // Populate items already in the bag (starting weapon added before we subscribed)
+                foreach (var item in itemBag.GetAllItems())
+                    OnItemChanged(item, itemBag.GetItemLevel(item));
+            }
         }
     }
 
@@ -52,21 +57,33 @@ public class WeaponBarUI : MonoBehaviour
         var bg      = slotGO.AddComponent<Image>();
         bg.color    = item.itemType == ItemType.Active ? ColorActive : ColorPassive;
         var rt      = slotGO.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(88f, 54f);
+        rt.sizeDelta = new Vector2(88f, 80f);
 
-        // Nombre del arma (arriba)
+        // Ícono del item (centro-superior)
+        var iconGO  = new GameObject("Icon");
+        iconGO.transform.SetParent(slotGO.transform, false);
+        var iconImg = iconGO.AddComponent<Image>();
+        iconImg.sprite         = item.icon;
+        iconImg.preserveAspect = true;
+        var iconRect = iconGO.GetComponent<RectTransform>();
+        iconRect.anchorMin        = new Vector2(0.1f, 0.30f);
+        iconRect.anchorMax        = new Vector2(0.9f, 0.88f);
+        iconRect.offsetMin        = Vector2.zero;
+        iconRect.offsetMax        = Vector2.zero;
+
+        // Nombre del arma (arriba, pequeño)
         var nameGO  = new GameObject("Name");
         nameGO.transform.SetParent(slotGO.transform, false);
         var nameTxt = nameGO.AddComponent<TextMeshProUGUI>();
         nameTxt.text      = Shorten(item.itemName);
-        nameTxt.fontSize  = 10f;
+        nameTxt.fontSize  = 9f;
         nameTxt.alignment = TextAlignmentOptions.Center;
         nameTxt.color     = Color.white;
         var nameRect      = nameGO.GetComponent<RectTransform>();
-        nameRect.anchorMin        = new Vector2(0f, 0.38f);
+        nameRect.anchorMin        = new Vector2(0f, 0.80f);
         nameRect.anchorMax        = new Vector2(1f, 1f);
-        nameRect.offsetMin        = new Vector2(3f,  0f);
-        nameRect.offsetMax        = new Vector2(-3f, -3f);
+        nameRect.offsetMin        = new Vector2(2f, 0f);
+        nameRect.offsetMax        = new Vector2(-2f, -2f);
 
         // Badge de nivel (abajo)
         var badgeGO  = new GameObject("Badge");

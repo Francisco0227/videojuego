@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Astronauta Atacante
   description: 'Lanza un astronauta con cuerda para atacar enemigos cercanos '
+  icon: {fileID: 3258106795188635774, guid: 9d0304fc1fa4da44b859f0986528cdc0, type: 3}
   itemType: 0
   maxLevel: 6
   levels:

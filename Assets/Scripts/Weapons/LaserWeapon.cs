@@ -25,11 +25,7 @@ public class LaserWeapon : WeaponBase
 
     protected override void Awake()
     {
-        base.Awake(); // Llama al Start de WeaponBase
-
-        // Buscar el ItemData del Laser Común en el ItemBag
-        // para saber qué datos leer
-        // El ItemData lo asignaremos desde el Inspector
+        base.Awake();
     }
 
     // ─────────────────────────────────────────────
@@ -40,10 +36,7 @@ public class LaserWeapon : WeaponBase
     {
         while (isActive)
         {
-            // Esperar el cooldown
             yield return new WaitForSeconds(GetFinalCooldown(currentCooldown));
-
-            // Buscar al enemigo más cercano y disparar
             Fire();
         }
     }

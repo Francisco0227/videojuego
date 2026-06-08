@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Velocidad de Disparo
   description: Aumenta la velocidad de ataque de todas las armas en un porcentaje
+  icon: {fileID: 1694866308684936396, guid: 412371967dd49034f8d5584020e0c8fb, type: 3}
   itemType: 1
   maxLevel: 6
   levels:

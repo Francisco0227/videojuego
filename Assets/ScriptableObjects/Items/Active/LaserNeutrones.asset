@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Laser de Neutrones
   description: "Dispara en cadena entre enemigos cercanos entre s\xED"
+  icon: {fileID: 7901336090574012055, guid: 4454a84d75bc0614b8b539566ada1a30, type: 3}
   itemType: 0
   maxLevel: 6
   levels:

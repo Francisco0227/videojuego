@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Orbe de la Fortuna
   description: Mejora las probabilidades de obtener items del inventario al subir
     de nivel
+  icon: {fileID: 1818913276908518488, guid: 3f13fc6ff7ca624499218c67e81c9ce6, type: 3}
   itemType: 1
   maxLevel: 6
   levels:

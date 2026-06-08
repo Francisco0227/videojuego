@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ChestUI : MonoBehaviour
@@ -6,6 +7,21 @@ public class ChestUI : MonoBehaviour
     [SerializeField] private GameObject       panel;
     [SerializeField] private TextMeshProUGUI  coinsEarnedText;
     [SerializeField] private TextMeshProUGUI  totalCoinsText;
+    [SerializeField] private Image            boxImage;
+
+    void Awake()
+    {
+        if (boxImage != null) return;
+        // Auto-buscar el Image en el hijo "Box" si no fue asignado en inspector
+        foreach (Transform child in GetComponentsInChildren<Transform>(true))
+        {
+            if (child.name == "Box")
+            {
+                boxImage = child.GetComponent<Image>();
+                break;
+            }
+        }
+    }
 
     public void Show(int coinsEarned)
     {

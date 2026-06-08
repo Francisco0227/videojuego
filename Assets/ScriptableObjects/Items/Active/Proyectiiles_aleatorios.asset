@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Proyectiles Aleatorios
   description: Lanza bombas en lugares aleatorios del mapa
+  icon: {fileID: -1966241819518991923, guid: dc4fe09e962105c4bbe1d5e6a0d7dbca, type: 3}
   itemType: 0
   maxLevel: 6
   levels:

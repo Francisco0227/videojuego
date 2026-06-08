@@ -25,8 +25,10 @@ public class LaserSwordWeapon : WeaponBase
         visualGO.transform.SetParent(transform, false);
 
         swordRenderer = visualGO.AddComponent<SpriteRenderer>();
-        swordRenderer.sprite       = CreateSwordSprite();
-        swordRenderer.color        = new Color(0.25f, 0.85f, 1f, 0f);
+        swordRenderer.sprite       = (itemData != null && itemData.icon != null)
+            ? itemData.icon
+            : CreateSwordSprite();
+        swordRenderer.color        = new Color(1f, 1f, 1f, 0f);
         swordRenderer.sortingOrder = 2;
 
         UpdateSwordVisual();
@@ -120,9 +122,11 @@ public class LaserSwordWeapon : WeaponBase
     private void UpdateSwordVisual()
     {
         if (swordRenderer == null) return;
-        // El sprite tiene pivot en el borde izquierdo; escala en X = longitud de espada
-        swordRenderer.transform.localScale = new Vector3(swordLength, 0.28f, 1f);
-        swordRenderer.transform.localPosition = Vector3.zero;
+        // El sprite del ícono es pequeño (13x37 px a 100PPU = 0.13x0.37 u)
+        // Se escala para que sea visible en la escena de juego
+        float scale = swordLength * 5f;
+        swordRenderer.transform.localScale    = new Vector3(scale * 0.35f, scale, 1f);
+        swordRenderer.transform.localPosition = new Vector3(swordLength * 0.5f, 0f, 0f);
     }
 
     private Sprite CreateSwordSprite()

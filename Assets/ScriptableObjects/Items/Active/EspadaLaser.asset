@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: "Espada L\xE1ser"
   description: "Espada l\xE1ser que apunta hacia donde se mueve el jugador"
+  icon: {fileID: -2124102372771563869, guid: 64fb19774ce5efd48a4c8b7eaba18d3b, type: 3}
   itemType: 0
   maxLevel: 6
   levels:

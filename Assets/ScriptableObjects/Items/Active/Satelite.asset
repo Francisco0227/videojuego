@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: "Sat\xE9lite"
   description: "Orbes que orbitan la nave y da\xF1an al contacto"
+  icon: {fileID: 5994250390126222917, guid: e11daa9a48ee1b84081f15edafae990d, type: 3}
   itemType: 0
   maxLevel: 6
   levels:

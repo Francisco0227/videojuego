@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Campo de Fuerza
   description: "Pulsa un campo de fuerza que da\xF1a a los enemigos cercanos"
+  icon: {fileID: -8020145047929140699, guid: 1547a04155867b2469e8da6930c58038, type: 3}
   itemType: 0
   maxLevel: 6
   levels:
@@ -25,8 +26,8 @@ MonoBehaviour:
     cooldown: 2.5
     projectileCount: 0
     isEvolution: 0
-    specialAbility:
-  - levelDescription: "Radio mayor: activo 1.5s, pausa 1.8s"
+    specialAbility: 
+  - levelDescription: 'Radio mayor: activo 1.5s, pausa 1.8s'
     damage: 5
     area: 3
     speed: 0
@@ -34,7 +35,7 @@ MonoBehaviour:
     cooldown: 1.8
     projectileCount: 0
     isEvolution: 0
-    specialAbility:
+    specialAbility: 
   - levelDescription: "Mayor da\xF1o y frecuencia: activo 2s, pausa 1.5s"
     damage: 8
     area: 3
@@ -43,7 +44,7 @@ MonoBehaviour:
     cooldown: 1.5
     projectileCount: 0
     isEvolution: 0
-    specialAbility:
+    specialAbility: 
   - levelDescription: "Radio mayor y m\xE1s frecuente: activo 2s, pausa 1s"
     damage: 8
     area: 4
@@ -52,7 +53,7 @@ MonoBehaviour:
     cooldown: 1
     projectileCount: 0
     isEvolution: 0
-    specialAbility:
+    specialAbility: 
   - levelDescription: "Mayor da\xF1o, muy frecuente: activo 2.5s, pausa 0.7s"
     damage: 12
     area: 4
@@ -61,7 +62,7 @@ MonoBehaviour:
     cooldown: 0.7
     projectileCount: 0
     isEvolution: 0
-    specialAbility:
+    specialAbility: 
   - levelDescription: "Evoluci\xF3n: ralentiza enemigos. Activo 3s, pausa 0.5s"
     damage: 15
     area: 5

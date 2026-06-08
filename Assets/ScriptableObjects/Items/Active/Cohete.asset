@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Cohete
   description: Dispara cohetes que vuelven como bumeranes
+  icon: {fileID: -7534462061118053823, guid: fe565f649fb23214185226cb47d83ad6, type: 3}
   itemType: 0
   maxLevel: 6
   levels:

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Orbe de Vida
   description: "Aumenta la vida m\xE1xima y otorga probabilidad de regeneraci\xF3n
     al subir de nivel"
+  icon: {fileID: 2281744913231391048, guid: 45d389f3c4f86804eb8431a8ac5c1792, type: 3}
   itemType: 1
   maxLevel: 6
   levels:

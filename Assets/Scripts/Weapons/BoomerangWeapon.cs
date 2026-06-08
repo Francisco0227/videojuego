@@ -13,7 +13,9 @@ public class BoomerangWeapon : WeaponBase
     protected override void Awake()
     {
         base.Awake();
-        cachedSprite = CreateBoomerangSprite();
+        cachedSprite = (itemData != null && itemData.icon != null)
+            ? itemData.icon
+            : CreateBoomerangSprite();
     }
 
     protected override IEnumerator AttackLoop()
